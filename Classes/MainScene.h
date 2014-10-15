@@ -3,7 +3,7 @@
 
 #include "PublicDef.h"
 
-class DHMainScene : public cocos2d::Layer , public Receiver
+class DHMainScene : public Layer , public Receiver
 {
 public:
     // there's no 'id' in cpp, so we recommend returning the class instance pointer
@@ -18,9 +18,11 @@ public:
     // implement the "static create()" method manually
     CREATE_FUNC(DHMainScene);
     
-    void OnMsgReceive(int nMsg,void* pData,int nSize);
+    void OnMsgReceive(MsgToMainScene nMsg,void* pData,int nSize);
     
     void update(float fT);
+    
+    Vector<Sprite*> Ducks;
 };
 
 #endif // __DHMainScene_SCENE_H__

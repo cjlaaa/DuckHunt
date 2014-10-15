@@ -11,12 +11,15 @@
 
 #include "PublicDef.h"
 
-class DHDuckManager : public Sprite , public Sender
+class DHDuckManager : public Node , public Sender
 {
 public:
     static DHDuckManager* create();
+    void Loop();
 protected:
+    int m_nDuckCDCount[DUCK_TYPE_NUM];
     bool Init();
+    void CreateDuck(int nDuckIndex);
 };
 
 #endif /* defined(__DuckHunt__DuckManager__) */

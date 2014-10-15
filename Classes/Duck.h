@@ -14,9 +14,15 @@
 class DHDuck : public Sprite , public Sender
 {
 public:
-    static DHDuck* create();
+    static DHDuck* create(const std::string& filename , DuckData data);
+    void Loop();
+    void Hurt();
 protected:
-    bool Init();
+    DuckData m_Data;
+    bool Init(const std::string& filename , DuckData data);
+    void Move();
+    void Disappear();
+    void Dead();
 };
 
 #endif /* defined(__DuckHunt__Duck__) */
