@@ -14,11 +14,11 @@
 class DHDuckManager : public Node , public Sender
 {
 public:
-    static DHDuckManager* create();
+    static DHDuckManager* create(Receiver* );
     void Loop();
 protected:
     int m_nDuckCDCount[DUCK_TYPE_NUM];
-    bool Init();
+    bool Init(Receiver* pNode);
     void CreateDuck(int nDuckIndex);
 };
 

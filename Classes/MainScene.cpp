@@ -44,15 +44,23 @@ bool DHMainScene::init()
     sprite->setPosition(Vec2(visibleSize.width/2 + origin.x, visibleSize.height/2 + origin.y));
 
     this->addChild(sprite, 0);
-    
+     
     scheduleUpdate();
+    
+    //初始化管理器
+    m_pManager = DHDuckManager::create(this);
+    m_pManager->retain();
 
     return true;
 }
 
 void DHMainScene::update(float fT)
 {
-    
+    m_pManager->Loop();
+    for (auto& pDuck : m_vecDucks)
+    {
+        ((DHDuck*)pDuck)->Loop();
+    }
 }
 
 void DHMainScene::OnMsgReceive(MsgToMainScene nMsg,void* pData,int nSize)
@@ -61,14 +69,14 @@ void DHMainScene::OnMsgReceive(MsgToMainScene nMsg,void* pData,int nSize)
     {
         case MsgDuckDisappear:
         {
-            CCASSERT(sizeof(structDuckDisappear)!=nSize, "sizeof(MsgDuckDisappear)!=nSize");
-            
+            CCASSERT(sizeof(structDuckDisappear)==nSize, "sizeof(MsgDuckDisappear)!=nSize");
+            DuckDisappear((structDuckDisappear*)pData);
         }
             break;
         case MsgDuckCreate:
         {
-            CCASSERT(sizeof(structDuckCreate)!=nSize, "sizeof(structDuckCreate)!=nSize");
-
+            CCASSERT(sizeof(structDuckCreate)==nSize, "sizeof(structDuckCreate)!=nSize");
+            DuckCreate((structDuckCreate*)pData);
         }
             break;
         default:
@@ -88,4 +96,18 @@ void DHMainScene::menuCloseCallback(Ref* pSender)
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
     exit(0);
 #endif
+}
+
+void DHMainScene::DuckCreate(structDuckCreate* pData)
+{
+    DHDuck* pDuck = DHDuck::CreateDuck("CloseNormal.png",pData->DuckInfo,this);
+    CCASSERT(pDuck!=NULL, "Duck Create Error!");
+    addChild(pDuck);
+    m_vecDucks.pushBack(pDuck);
+}
+
+void DHMainScene::DuckDisappear(structDuckDisappear* pData)
+{
+    m_vecDucks.eraseObject(pData->pDuck);
+    removeChild(pData->pDuck);
 }

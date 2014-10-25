@@ -14,6 +14,13 @@ USING_NS_CC;
 
 #define DUCK_TYPE_NUM 3
 
+enum
+{
+    enZOrderBack,
+    enZOrderMid,
+    enZOrderFront,
+};
+
 struct DuckData
 {
     int nScore;
@@ -26,9 +33,9 @@ struct DuckData
 //单位信息数据集合
 const DuckData DuckDataBase[DUCK_TYPE_NUM] =
 {
-    {1,1,1},
-    {2,2,2},
-    {3,3,3},
+    {1,1,50},
+    {2,2,80},
+    {3,3,100},
 };
 
 //发给主场景的消息
@@ -44,7 +51,7 @@ class DHDuck;
 //单位消失
 struct structDuckDisappear
 {
-    DHDuck* pSelf;
+    DHDuck* pDuck;
 };
 
 //单位创建

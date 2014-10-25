@@ -8,10 +8,10 @@
 
 #include "Duck.h"
 
-DHDuck* DHDuck::create(const std::string& filename, DuckData data)
+DHDuck* DHDuck::CreateDuck(const std::string& filename, DuckData data,Receiver* pReceiver)
 {
     DHDuck *pRet = new DHDuck();
-    if (pRet && pRet->Init(filename , data))
+    if (pRet && pRet->Init(filename , data , pReceiver))
     {
         pRet->autorelease();
         return pRet;
@@ -24,12 +24,17 @@ DHDuck* DHDuck::create(const std::string& filename, DuckData data)
     }
 }
 
-bool DHDuck::Init(const std::string& filename , DuckData data)
+bool DHDuck::Init(const std::string& filename , DuckData data,Receiver* pReceiver)
 {
-    CCASSERT(initWithFile(filename)==false,"DHDuck::Init initWithFile Error!");
-    SetReceiver(dynamic_cast<Receiver*>(getParent()));
+    CCASSERT(initWithFile(filename),"DHDuck::Init initWithFile Error!");
+    SetReceiver(pReceiver);
     m_Data = data;
-    return false;
+    setPosition(m_Data.StartPos);
+    
+    runAction(Sequence::create(MoveTo::create(1.f, m_Data.TargetPos),
+                               CallFunc::create(CC_CALLBACK_0(DHDuck::Disappear,this)),
+                               NULL));
+    return true;
 }
 
 void DHDuck::Loop()
@@ -51,7 +56,7 @@ void DHDuck::Move()
 void DHDuck::Disappear()
 {
     struct structDuckDisappear Info;
-    Info.pSelf = this;
+    Info.pDuck = this;
     SendMsg(MsgDuckDisappear,&Info,sizeof(Info));
 }
 

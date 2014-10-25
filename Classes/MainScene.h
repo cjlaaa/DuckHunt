@@ -2,6 +2,13 @@
 #define __DHMainScene_SCENE_H__
 
 #include "PublicDef.h"
+#include "Duck.h"
+#include "DuckManager.h"
+
+enum
+{
+    enTagDuckManager,
+};
 
 class DHMainScene : public Layer , public Receiver
 {
@@ -22,7 +29,15 @@ public:
     
     void update(float fT);
     
-    Vector<Sprite*> Ducks;
+    Vector<Sprite*> m_vecDucks;
+    
+private:
+    //管理器
+    DHDuckManager* m_pManager;
+    //创建目标
+    void DuckCreate(structDuckCreate*);
+    //删除目标
+    void DuckDisappear(structDuckDisappear*);
 };
 
 #endif // __DHMainScene_SCENE_H__

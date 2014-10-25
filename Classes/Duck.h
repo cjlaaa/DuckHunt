@@ -14,12 +14,12 @@
 class DHDuck : public Sprite , public Sender
 {
 public:
-    static DHDuck* create(const std::string& filename , DuckData data);
+    static DHDuck* CreateDuck(const std::string& filename , DuckData data,Receiver* pReceiver);
     void Loop();
     void Hurt();
 protected:
     DuckData m_Data;
-    bool Init(const std::string& filename , DuckData data);
+    bool Init(const std::string& filename , DuckData data,Receiver* pReceiver);
     void Move();
     void Disappear();
     void Dead();
