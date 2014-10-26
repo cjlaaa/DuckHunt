@@ -31,7 +31,7 @@ bool DHDuck::Init(const std::string& filename , DuckData data,Receiver* pReceive
     m_Data = data;
     setPosition(m_Data.StartPos);
     
-    runAction(Sequence::create(MoveTo::create(1.f, m_Data.TargetPos),
+    runAction(Sequence::create(MoveTo::create(m_Data.nAliveTime, m_Data.TargetPos),
                                CallFunc::create(CC_CALLBACK_0(DHDuck::Disappear,this)),
                                NULL));
     return true;
@@ -58,6 +58,7 @@ void DHDuck::Disappear()
     struct structDuckDisappear Info;
     Info.pDuck = this;
     SendMsg(MsgDuckDisappear,&Info,sizeof(Info));
+    SendMsg(MsgDuckLose);
 }
 
 void DHDuck::Dead()

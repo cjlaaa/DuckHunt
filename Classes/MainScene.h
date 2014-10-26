@@ -8,6 +8,8 @@
 enum
 {
     enTagDuckManager,
+    enTagLabelScore,
+    enTagLabelLoseCount,
 };
 
 class DHMainScene : public Layer , public Receiver
@@ -32,12 +34,20 @@ public:
     Vector<Sprite*> m_vecDucks;
     
 private:
+    //得分
+    int m_nScore;
+    //漏掉的数量
+    int m_nLoseCount;
     //管理器
     DHDuckManager* m_pManager;
     //创建目标
     void DuckCreate(structDuckCreate*);
     //删除目标
     void DuckDisappear(structDuckDisappear*);
+    
+    void onTouchesBegan(const std::vector<Touch*>& touches, Event *unused_event);
+    void onTouchesMoved(const std::vector<Touch*>& touches, Event *unused_event);
+    void onTouchesEnded(const std::vector<Touch*>& touches, Event *unused_event);
 };
 
 #endif // __DHMainScene_SCENE_H__

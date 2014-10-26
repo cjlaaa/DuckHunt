@@ -26,6 +26,7 @@ struct DuckData
     int nScore;
     int nHp;
     int nCD;
+    int nAliveTime;
     Point StartPos;
     Point TargetPos;
 };
@@ -33,9 +34,9 @@ struct DuckData
 //单位信息数据集合
 const DuckData DuckDataBase[DUCK_TYPE_NUM] =
 {
-    {1,1,50},
-    {2,2,80},
-    {3,3,100},
+    {1,1,50,1},
+    {2,2,80,2},
+    {3,3,100,3},
 };
 
 //发给主场景的消息
@@ -45,6 +46,8 @@ enum MsgToMainScene
     MsgDuckDisappear,
     //单位创建
     MsgDuckCreate,
+    //漏掉单位
+    MsgDuckLose,
 };
 
 class DHDuck;

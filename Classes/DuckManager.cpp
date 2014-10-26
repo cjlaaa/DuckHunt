@@ -59,54 +59,57 @@ void DHDuckManager::CreateDuck(int nDuckIndex)
     Size visibleSize = Director::getInstance()->getVisibleSize();
     
     //计算初始位置所在边
-    //这里的代码是为了防止目标点与起始点在一条边上,写的很烂,而且还是有两点在一条边上的情况,但这只是看效果用的,不要在意这些细节...
+    //这里的代码是为了防止目标点与起始点在一条边上,写的很烂,但总算没有两点在一条边上的情况了...
+    //这只是看效果用的,不要在意这些细节...
     float nStartBorder = CCRANDOM_0_1()*10;
     //0-3分别表示下,右,上,左
-    int nBorderType = 0;
+    int nStartBorderType = 0;
     if (nStartBorder<2)
     {
         Data.StartPos = Vec2(CCRANDOM_0_1()*visibleSize.width,0);
-        nBorderType = 0;
+        nStartBorderType = 0;
     }
     else if(nStartBorder<5)
     {
         Data.StartPos = Vec2(visibleSize.width,visibleSize.height*CCRANDOM_0_1());
-        nBorderType = 1;
+        nStartBorderType = 1;
     }
     else if (nStartBorder<7)
     {
         Data.StartPos = Vec2(CCRANDOM_0_1()*visibleSize.width,visibleSize.height);
-        nBorderType = 2;
+        nStartBorderType = 2;
     }
     else
     {
         Data.StartPos = Vec2(0,CCRANDOM_0_1()*visibleSize.height);
-        nBorderType = 3;
+        nStartBorderType = 3;
     }
     
+    int nTargetBorderType = -1;
     while (true) {
         //计算目标位置所在边
         float nTargetPos = CCRANDOM_0_1()*10;
         if (nTargetPos<2)
         {
             Data.TargetPos = Vec2(CCRANDOM_0_1()*visibleSize.width,0);
-            if (nBorderType==0) continue; else break;
+            nTargetBorderType = 0;
         }
         else if(nTargetPos<5)
         {
             Data.TargetPos = Vec2(visibleSize.width,visibleSize.height*CCRANDOM_0_1());
-            if (nBorderType==1) continue; else break;
+            nTargetBorderType = 1;
         }
         else if (nTargetPos<7)
         {
             Data.TargetPos = Vec2(CCRANDOM_0_1()*visibleSize.width,visibleSize.height);
-            if (nBorderType==2) continue; else break;
+            nTargetBorderType = 2;
         }
         else
         {
             Data.TargetPos = Vec2(0,CCRANDOM_0_1()*visibleSize.height);
-            if (nTargetPos==3) continue; else break;
+            nTargetBorderType = 3;
         }
+        if (nTargetBorderType==nStartBorderType) continue; else break;
     }
     
 
