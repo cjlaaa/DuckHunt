@@ -29,9 +29,22 @@ bool DHMainScene::init()
     auto label = LabelTTF::create("Hello World", "Arial", 24);
     label->setPosition(Vec2(origin.x + visibleSize.width/2,origin.y + visibleSize.height - label->getContentSize().height));
     this->addChild(label, 1);
-    auto sprite = Sprite::create("HelloWorld.png");
-    sprite->setPosition(Vec2(visibleSize.width/2 + origin.x, visibleSize.height/2 + origin.y));
-    this->addChild(sprite, 0);
+    
+    //生成背景
+    Sprite* pBg;
+    srand((unsigned)time(NULL));
+    CCRANDOM_0_1();
+    int nBgIndex = ((int)(CCRANDOM_0_1()*10));
+    log("nBgIndex = %d",nBgIndex);
+    if (nBgIndex<4)
+        pBg = Sprite::create("bg1.png");
+    else if(nBgIndex<7)
+        pBg = Sprite::create("bg2.png");
+    else
+        pBg = Sprite::create("bg3.png");
+    pBg->setPosition(Vec2(visibleSize.width/2 + origin.x, visibleSize.height/2 + origin.y));
+    pBg->setScale(visibleSize.height/pBg->getContentSize().height);
+    this->addChild(pBg, 0);
      
     scheduleUpdate();
     
@@ -146,7 +159,7 @@ void DHMainScene::menuCloseCallback(Ref* pSender)
 
 void DHMainScene::DuckCreate(structDuckCreate* pData)
 {
-    DHDuck* pDuck = DHDuck::CreateDuck("CloseNormal.png",pData->DuckInfo,this);
+    DHDuck* pDuck = DHDuck::CreateDuck("duck1.png",pData->DuckInfo,this);
     CCASSERT(pDuck!=NULL, "Duck Create Error!");
     addChild(pDuck);
     m_vecDucks.pushBack(pDuck);

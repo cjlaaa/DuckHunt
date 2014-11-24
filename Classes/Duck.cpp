@@ -30,6 +30,7 @@ bool DHDuck::Init(const std::string& filename , DuckData data,Receiver* pReceive
     SetReceiver(pReceiver);
     m_Data = data;
     setPosition(m_Data.StartPos);
+    cocos2d::Node::setScale(0.3f);
     
     runAction(Sequence::create(MoveTo::create(m_Data.nAliveTime, m_Data.TargetPos),
                                CallFunc::create(CC_CALLBACK_0(DHDuck::Disappear,this)),
