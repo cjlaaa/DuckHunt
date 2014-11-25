@@ -4,6 +4,7 @@
 #include "PublicDef.h"
 #include "Duck.h"
 #include "DuckManager.h"
+#include "SuperCombo.h"
 
 enum
 {
@@ -38,12 +39,23 @@ private:
     int m_nScore;
     //漏掉的数量
     int m_nLoseCount;
+    //目标资源
+    std::string m_strDuckResName;
+    
     //管理器
     DHDuckManager* m_pManager;
     //创建目标
     void DuckCreate(structDuckCreate*);
     //删除目标
     void DuckDisappear(structDuckDisappear*);
+    
+    //自定义循环函数
+    void UpdateCustom(float fT);
+    //连击计数器
+    CSuperCombo m_Combo;
+    
+    //获得随机数 1-nRange
+    int GetRandom(int nRange);
     
     void onTouchesBegan(const std::vector<Touch*>& touches, Event *unused_event);
     void onTouchesMoved(const std::vector<Touch*>& touches, Event *unused_event);

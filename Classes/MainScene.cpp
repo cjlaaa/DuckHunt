@@ -1,6 +1,7 @@
 #include "MainScene.h"
 
 USING_NS_CC;
+#define CUSTOM_UPDATE_INTERVAL 0.1f
 
 Scene* DHMainScene::createScene()
 {
@@ -17,6 +18,8 @@ bool DHMainScene::init()
         return false;
     }
     
+    srand((unsigned)time(NULL));
+    
     Size visibleSize = Director::getInstance()->getVisibleSize();
     Vec2 origin = Director::getInstance()->getVisibleOrigin();
     auto closeItem = MenuItemImage::create("CloseNormal.png",
@@ -31,22 +34,20 @@ bool DHMainScene::init()
     this->addChild(label, 1);
     
     //生成背景
-    Sprite* pBg;
-    srand((unsigned)time(NULL));
-    CCRANDOM_0_1();
-    int nBgIndex = ((int)(CCRANDOM_0_1()*10));
-    log("nBgIndex = %d",nBgIndex);
-    if (nBgIndex<4)
-        pBg = Sprite::create("bg1.png");
-    else if(nBgIndex<7)
-        pBg = Sprite::create("bg2.png");
-    else
-        pBg = Sprite::create("bg3.png");
+    char cBgName[32];
+    sprintf(cBgName, "bg%d.png",GetRandom(3));
+    Sprite* pBg = Sprite::create(cBgName);
     pBg->setPosition(Vec2(visibleSize.width/2 + origin.x, visibleSize.height/2 + origin.y));
     pBg->setScale(visibleSize.height/pBg->getContentSize().height);
     this->addChild(pBg, 0);
+    
+    //目标资源
+    char cDuckResName[32];
+    sprintf(cDuckResName, "duck%d.png",GetRandom(3));
+    m_strDuckResName = cDuckResName;
      
     scheduleUpdate();
+    schedule(schedule_selector(DHMainScene::UpdateCustom), CUSTOM_UPDATE_INTERVAL);
     
     //初始化管理器
     m_pManager = DHDuckManager::create(this);
@@ -88,6 +89,7 @@ void DHMainScene::onTouchesBegan(const std::vector<Touch*>& touches, Event *unus
                 Info.pDuck = (DHDuck*)pDuck;
                 DuckDisappear(&Info);
                 m_nScore++;
+                m_Combo.Hit();
             }
         }
     }
@@ -112,10 +114,16 @@ void DHMainScene::update(float fT)
     LabelAtlas* pScore = dynamic_cast<LabelAtlas*>(getChildByTag(enTagLabelScore));
     CCASSERT(pScore!=NULL,"Get Label Error!");
     pScore->setString(CCString::createWithFormat("%d",m_nScore)->getCString());
+}
+
+void DHMainScene::UpdateCustom(float fT)
+{
+    m_Combo.Loop();
     
     LabelAtlas* pLoseCount = dynamic_cast<LabelAtlas*>(getChildByTag(enTagLabelLoseCount));
     CCASSERT(pLoseCount!=NULL,"Get Label Error!");
-    pLoseCount->setString(CCString::createWithFormat("%d",m_nLoseCount)->getCString());
+    pLoseCount->setString(CCString::createWithFormat("%d",m_Combo.GetCombo())->getCString());
+
 }
 
 void DHMainScene::OnMsgReceive(MsgToMainScene nMsg,void* pData,int nSize)
@@ -159,7 +167,7 @@ void DHMainScene::menuCloseCallback(Ref* pSender)
 
 void DHMainScene::DuckCreate(structDuckCreate* pData)
 {
-    DHDuck* pDuck = DHDuck::CreateDuck("duck1.png",pData->DuckInfo,this);
+    DHDuck* pDuck = DHDuck::CreateDuck(m_strDuckResName.c_str(),pData->DuckInfo,this);
     CCASSERT(pDuck!=NULL, "Duck Create Error!");
     addChild(pDuck);
     m_vecDucks.pushBack(pDuck);
@@ -169,4 +177,11 @@ void DHMainScene::DuckDisappear(structDuckDisappear* pData)
 {
     m_vecDucks.eraseObject(pData->pDuck);
     removeChild(pData->pDuck);
+}
+
+int DHMainScene::GetRandom(int nRange)
+{
+    CCRANDOM_0_1();
+    int nResult = rand() % nRange;
+    return nResult + 1;
 }
