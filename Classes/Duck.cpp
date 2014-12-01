@@ -29,12 +29,11 @@ bool DHDuck::Init(const std::string& filename , DuckData data,Receiver* pReceive
     CCASSERT(initWithFile(filename),"DHDuck::Init initWithFile Error!");
     SetReceiver(pReceiver);
     m_Data = data;
+    m_bIsDead = false;
     setPosition(m_Data.StartPos);
     cocos2d::Node::setScale(0.3f);
     
-    runAction(Sequence::create(MoveTo::create(m_Data.nAliveTime, m_Data.TargetPos),
-                               CallFunc::create(CC_CALLBACK_0(DHDuck::Disappear,this)),
-                               NULL));
+//    runAction(Sequence::create(MoveTo::create(m_Data.nSpeed, m_Data.TargetPos),CallFunc::create(CC_CALLBACK_0(DHDuck::Disappear,this)),NULL));
     return true;
 }
 
@@ -51,7 +50,27 @@ void DHDuck::Hurt()
 
 void DHDuck::Move()
 {
+    Size visibleSize = Director::getInstance()->getVisibleSize();
     
+    if (!m_bIsDead)
+    {
+        //向右移动
+        if (m_Data.bMoveRight)
+        {
+            setPositionX(getPositionX()+m_Data.nSpeed);
+        }
+        else    //向左移动
+        {
+            setPositionX(getPositionX()-m_Data.nSpeed);
+        }
+        setPositionY(sin(getPositionX() / visibleSize.width * 10) * visibleSize.height * 0.05 + m_Data.TargetPos.y);
+    }
+    
+    //消失判断
+    if (getPositionX() > visibleSize.width || getPositionX() < 0)
+    {
+        Disappear();
+    }
 }
 
 void DHDuck::Disappear()
@@ -59,11 +78,14 @@ void DHDuck::Disappear()
     struct structDuckDisappear Info;
     Info.pDuck = this;
     SendMsg(MsgDuckDisappear,&Info,sizeof(Info));
-    SendMsg(MsgDuckLose);
+    //SendMsg(MsgAddScore);
 }
 
 void DHDuck::Dead()
 {
     if (m_Data.nHp < 1)
+    {
+        m_bIsDead = true;
         Disappear();
+    }
 }

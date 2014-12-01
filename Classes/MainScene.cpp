@@ -35,16 +35,11 @@ bool DHMainScene::init()
     
     //生成背景
     char cBgName[32];
-    sprintf(cBgName, "bg%d.png",GetRandom(3));
+    sprintf(cBgName, "bg%d.png",DHUtils::getInstance()->GetRandom(3));
     Sprite* pBg = Sprite::create(cBgName);
     pBg->setPosition(Vec2(visibleSize.width/2 + origin.x, visibleSize.height/2 + origin.y));
     pBg->setScale(visibleSize.height/pBg->getContentSize().height);
     this->addChild(pBg, 0);
-    
-    //目标资源
-    char cDuckResName[32];
-    sprintf(cDuckResName, "duck%d.png",GetRandom(3));
-    m_strDuckResName = cDuckResName;
      
     scheduleUpdate();
     schedule(schedule_selector(DHMainScene::UpdateCustom), CUSTOM_UPDATE_INTERVAL);
@@ -85,11 +80,7 @@ void DHMainScene::onTouchesBegan(const std::vector<Touch*>& touches, Event *unus
         {
             if (pDuck->getBoundingBox().containsPoint(pTouch->getLocation()))
             {
-                structDuckDisappear Info;
-                Info.pDuck = (DHDuck*)pDuck;
-                DuckDisappear(&Info);
-                m_nScore++;
-                m_Combo.Hit();
+                ((DHDuck*)pDuck)->Hurt();
             }
         }
     }
@@ -141,9 +132,9 @@ void DHMainScene::OnMsgReceive(MsgToMainScene nMsg,void* pData,int nSize)
             CCASSERT(sizeof(structDuckCreate)==nSize, "sizeof(structDuckCreate)!=nSize");
             DuckCreate((structDuckCreate*)pData);
         }
-        case MsgDuckLose:
+        case MsgAddScore:
         {
-            m_nLoseCount++;
+            
         }
             break;
         default:
@@ -167,7 +158,7 @@ void DHMainScene::menuCloseCallback(Ref* pSender)
 
 void DHMainScene::DuckCreate(structDuckCreate* pData)
 {
-    DHDuck* pDuck = DHDuck::CreateDuck(m_strDuckResName.c_str(),pData->DuckInfo,this);
+    DHDuck* pDuck = DHDuck::CreateDuck(pData->DuckInfo.fileName.c_str(),pData->DuckInfo,this);
     CCASSERT(pDuck!=NULL, "Duck Create Error!");
     addChild(pDuck);
     m_vecDucks.pushBack(pDuck);
@@ -175,13 +166,12 @@ void DHMainScene::DuckCreate(structDuckCreate* pData)
 
 void DHMainScene::DuckDisappear(structDuckDisappear* pData)
 {
+    if (pData->pDuck->m_bIsDead)
+    {
+        m_nScore += pData->pDuck->m_Data.nScore;
+        m_Combo.Hit(pData->pDuck->m_Data.nScore);
+    }
+    
     m_vecDucks.eraseObject(pData->pDuck);
     removeChild(pData->pDuck);
-}
-
-int DHMainScene::GetRandom(int nRange)
-{
-    CCRANDOM_0_1();
-    int nResult = rand() % nRange;
-    return nResult + 1;
 }

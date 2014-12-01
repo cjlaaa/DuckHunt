@@ -56,6 +56,39 @@ void DHDuckManager::CreateDuck(int nDuckIndex)
 {
     DuckData Data = DuckDataBase[nDuckIndex];
     
+    Data = GetLeftRightPos(Data);
+
+    structDuckCreate Info;
+    Info.DuckInfo = Data;
+    
+    SendMsg(MsgDuckCreate,&Info,sizeof(Info));
+}
+
+DuckData DHDuckManager::GetLeftRightPos(DuckData Data)
+{
+    Size visibleSize = Director::getInstance()->getVisibleSize();
+    
+    //获得起点边
+    int nStartBorder = DHUtils::getInstance()->GetRandom(2,true);
+    //左边
+    if (nStartBorder)
+    {
+        Data.StartPos = Vec2(0,CCRANDOM_0_1()*visibleSize.height);
+        Data.TargetPos = Vec2(visibleSize.width,Data.StartPos.y);
+        Data.bMoveRight = true;
+    }
+    else//右边
+    {
+        Data.StartPos = Vec2(visibleSize.width,CCRANDOM_0_1()*visibleSize.height);
+        Data.TargetPos = Vec2(0,Data.StartPos.y);
+        Data.bMoveRight = false;
+    }
+    
+    return Data;
+}
+
+DuckData DHDuckManager::GetBorderPos(DuckData Data)
+{
     Size visibleSize = Director::getInstance()->getVisibleSize();
     
     //计算初始位置所在边
@@ -112,9 +145,5 @@ void DHDuckManager::CreateDuck(int nDuckIndex)
         if (nTargetBorderType==nStartBorderType) continue; else break;
     }
     
-
-    structDuckCreate Info;
-    Info.DuckInfo = Data;
-    
-    SendMsg(MsgDuckCreate,&Info,sizeof(Info));
+    return Data;
 }

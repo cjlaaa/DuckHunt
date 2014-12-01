@@ -16,10 +16,10 @@ CSuperCombo::CSuperCombo()
     m_nComboCount = 0;
 }
 
-void CSuperCombo::Hit()
+void CSuperCombo::Hit(int nScore)
 {
     m_nTimer = MAX_TIMER;
-    m_nComboCount ++;
+    m_nComboCount += nScore;
 }
 
 void CSuperCombo::Loop()

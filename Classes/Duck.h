@@ -17,8 +17,9 @@ public:
     static DHDuck* CreateDuck(const std::string& filename , DuckData data,Receiver* pReceiver);
     void Loop();
     void Hurt();
-protected:
     DuckData m_Data;
+    bool m_bIsDead;
+protected:
     bool Init(const std::string& filename , DuckData data,Receiver* pReceiver);
     void Move();
     void Disappear();

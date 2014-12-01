@@ -20,6 +20,11 @@ protected:
     int m_nDuckCDCount[DUCK_TYPE_NUM];
     bool Init(Receiver* pNode);
     void CreateDuck(int nDuckIndex);
+    
+    //获得四边随机起点与终点
+    DuckData GetBorderPos(DuckData);
+    //获得左边与右边的随机起终点
+    DuckData GetLeftRightPos(DuckData);
 };
 
 #endif /* defined(__DuckHunt__DuckManager__) */

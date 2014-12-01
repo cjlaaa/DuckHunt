@@ -1,3 +1,4 @@
 proj.*
 /cocos2d
 CMakeLists.txt
+/DuckHuntUI

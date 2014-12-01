@@ -17,7 +17,7 @@ class CSuperCombo
 public:
     CSuperCombo();
     //有效点击
-    void Hit();
+    void Hit(int nScore);
     //循环,需要每0.1秒调用一次
     void Loop();
     //获得连击数

@@ -26,17 +26,19 @@ struct DuckData
     int nScore;
     int nHp;
     int nCD;
-    int nAliveTime;
+    int nSpeed;
+    std::string fileName;
     Point StartPos;
     Point TargetPos;
+    bool bMoveRight;
 };
 
 //单位信息数据集合
 const DuckData DuckDataBase[DUCK_TYPE_NUM] =
 {
-    {1,1,50,1},
-    {2,2,80,2},
-    {3,3,100,3},
+    {1,1,50,5,"duck1.png"},
+    {2,1,80,10,"duck2.png"},
+    {3,1,100,15,"duck3.png"},
 };
 
 //发给主场景的消息
@@ -46,8 +48,8 @@ enum MsgToMainScene
     MsgDuckDisappear,
     //单位创建
     MsgDuckCreate,
-    //漏掉单位
-    MsgDuckLose,
+    //加分
+    MsgAddScore,
 };
 
 class DHDuck;
@@ -82,6 +84,15 @@ public:
     {
         m_pReceiver->OnMsgReceive(enMsg,pData,nSize);
     }
+};
+
+class DHUtils
+{
+public:
+    static DHUtils* getInstance();
+    
+    //获得随机数 bFromZero为false则1~nRange,true则为0~(nRange-1)
+    int GetRandom(int nRange,bool bFromZero = false);
 };
 
 #endif
