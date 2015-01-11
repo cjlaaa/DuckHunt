@@ -1,0 +1,1109 @@
+{
+  "version": "1.0.0.0",
+  "designWidth": 960,
+  "designHeight": 640,
+  "dataScale": 1.0,
+  "textures": [
+    "DuckHuntUI0.plist"
+  ],
+  "texturesPng": [
+    "DuckHuntUI0.png"
+  ],
+  "nodeTree": {
+    "options": {
+      "visible": true,
+      "frameEvent": null,
+      "name": "Node",
+      "classname": "Node"
+    },
+    "children": [
+      {
+        "options": {
+          "innerHeight": 300.0,
+          "y": 2.0,
+          "scaleX": 4.79913139,
+          "scaleY": 3.19521713,
+          "touchAble": true,
+          "visible": true,
+          "classType": "ScrollView",
+          "width": 200.0,
+          "height": 200.0,
+          "positionPercentY": 0.00625,
+          "sizePercentX": 0.416666657,
+          "sizePercentY": 0.625,
+          "useMergedTexture": true,
+          "actionTag": 707322081,
+          "tag": 1,
+          "anchorPointX": 0.0,
+          "anchorPointY": 0.0,
+          "name": "ScrollView",
+          "classname": "ScrollView"
+        },
+        "children": [
+          {
+            "options": {
+              "fileNameData": {
+                "resourceType": 1,
+                "path": "Resources/duck1.png",
+                "plistFile": ""
+              },
+              "scale9Width": 323.0,
+              "scale9Height": 324.0,
+              "x": 21.0,
+              "y": 272.0,
+              "scaleX": 0.07375014,
+              "scaleY": 0.112686835,
+              "visible": true,
+              "classType": "ImageView",
+              "width": 323.0,
+              "height": 324.0,
+              "positionPercentX": 0.105,
+              "positionPercentY": 1.36,
+              "sizePercentX": 0.4,
+              "sizePercentY": 0.4,
+              "useMergedTexture": true,
+              "actionTag": 32842837,
+              "tag": 10,
+              "ignoreSize": true,
+              "name": "ImageView",
+              "classname": "ImageView"
+            },
+            "children": [],
+            "classname": "ImageView"
+          },
+          {
+            "options": {
+              "barFileNameData": {
+                "resourceType": 1,
+                "path": "GUI/slider_bar.png",
+                "plistFile": ""
+              },
+              "ballNormalData": {
+                "resourceType": 1,
+                "path": "GUI/slider_bar_button.png",
+                "plistFile": ""
+              },
+              "ballPressedData": {
+                "resourceType": 0
+              },
+              "ballDisabledData": {
+                "resourceType": 0
+              },
+              "percent": 1,
+              "progressBarData": {
+                "resourceType": 0
+              },
+              "x": 130.0,
+              "y": 280.0,
+              "scaleX": 0.4073145,
+              "scaleY": -0.6963755,
+              "touchAble": true,
+              "visible": true,
+              "classType": "Slider",
+              "width": 290.0,
+              "height": 6.0,
+              "positionPercentX": 0.65,
+              "positionPercentY": 1.4,
+              "sizePercentX": 1.45,
+              "sizePercentY": 0.03,
+              "useMergedTexture": true,
+              "actionTag": 169260356,
+              "tag": 5,
+              "ignoreSize": true,
+              "name": "Slider_1",
+              "classname": "Slider"
+            },
+            "children": [],
+            "classname": "Slider"
+          },
+          {
+            "options": {
+              "text": "分数",
+              "x": 57.0,
+              "y": 280.0,
+              "scaleX": 0.339773238,
+              "scaleY": 0.5172366,
+              "visible": true,
+              "classType": "Label",
+              "width": 40.0,
+              "height": 23.0,
+              "positionPercentX": 0.285,
+              "positionPercentY": 1.4,
+              "sizePercentX": 0.455,
+              "sizePercentY": 0.115,
+              "useMergedTexture": true,
+              "actionTag": 764778053,
+              "tag": 12,
+              "ignoreSize": true,
+              "name": "Label_11",
+              "classname": "Label"
+            },
+            "children": [],
+            "classname": "Label"
+          },
+          {
+            "options": {
+              "text": "生命",
+              "x": 57.0,
+              "y": 259.0,
+              "scaleX": 0.339773238,
+              "scaleY": 0.5172366,
+              "visible": true,
+              "classType": "Label",
+              "width": 40.0,
+              "height": 23.0,
+              "positionPercentX": 0.285,
+              "positionPercentY": 1.295,
+              "sizePercentX": 0.455,
+              "sizePercentY": 0.115,
+              "useMergedTexture": true,
+              "actionTag": 374402047,
+              "tag": 13,
+              "ignoreSize": true,
+              "name": "Label_12",
+              "classname": "Label"
+            },
+            "children": [],
+            "classname": "Label"
+          },
+          {
+            "options": {
+              "barFileNameData": {
+                "resourceType": 1,
+                "path": "GUI/slider_bar.png",
+                "plistFile": ""
+              },
+              "ballNormalData": {
+                "resourceType": 1,
+                "path": "GUI/slider_bar_button.png",
+                "plistFile": ""
+              },
+              "ballPressedData": {
+                "resourceType": 0
+              },
+              "ballDisabledData": {
+                "resourceType": 0
+              },
+              "percent": 1,
+              "progressBarData": {
+                "resourceType": 0
+              },
+              "x": 130.0,
+              "y": 259.0,
+              "scaleX": 0.4073145,
+              "scaleY": -0.6963755,
+              "touchAble": true,
+              "visible": true,
+              "classType": "Slider",
+              "width": 290.0,
+              "height": 6.0,
+              "positionPercentX": 0.65,
+              "positionPercentY": 1.295,
+              "sizePercentX": 1.45,
+              "sizePercentY": 0.03,
+              "useMergedTexture": true,
+              "actionTag": 846747972,
+              "tag": 14,
+              "ignoreSize": true,
+              "name": "Slider_13",
+              "classname": "Slider"
+            },
+            "children": [],
+            "classname": "Slider"
+          },
+          {
+            "options": {
+              "barFileNameData": {
+                "resourceType": 1,
+                "path": "GUI/slider_bar.png",
+                "plistFile": ""
+              },
+              "ballNormalData": {
+                "resourceType": 1,
+                "path": "GUI/slider_bar_button.png",
+                "plistFile": ""
+              },
+              "ballPressedData": {
+                "resourceType": 0
+              },
+              "ballDisabledData": {
+                "resourceType": 0
+              },
+              "percent": 5,
+              "progressBarData": {
+                "resourceType": 0
+              },
+              "x": 130.0,
+              "y": 216.0,
+              "scaleX": 0.4073145,
+              "scaleY": -0.6963755,
+              "touchAble": true,
+              "visible": true,
+              "classType": "Slider",
+              "width": 290.0,
+              "height": 6.0,
+              "positionPercentX": 0.65,
+              "positionPercentY": 1.08,
+              "sizePercentX": 1.45,
+              "sizePercentY": 0.03,
+              "useMergedTexture": true,
+              "actionTag": 938414282,
+              "tag": 15,
+              "ignoreSize": true,
+              "name": "Slider_14",
+              "classname": "Slider"
+            },
+            "children": [],
+            "classname": "Slider"
+          },
+          {
+            "options": {
+              "text": "速度",
+              "x": 57.0,
+              "y": 216.0,
+              "scaleX": 0.339773238,
+              "scaleY": 0.5172366,
+              "visible": true,
+              "classType": "Label",
+              "width": 40.0,
+              "height": 23.0,
+              "positionPercentX": 0.285,
+              "positionPercentY": 1.08,
+              "sizePercentX": 0.455,
+              "sizePercentY": 0.115,
+              "useMergedTexture": true,
+              "actionTag": 689689112,
+              "tag": 16,
+              "ignoreSize": true,
+              "name": "Label_15",
+              "classname": "Label"
+            },
+            "children": [],
+            "classname": "Label"
+          },
+          {
+            "options": {
+              "text": "刷新",
+              "x": 57.0,
+              "y": 237.0,
+              "scaleX": 0.339773238,
+              "scaleY": 0.5172366,
+              "visible": true,
+              "classType": "Label",
+              "width": 40.0,
+              "height": 23.0,
+              "positionPercentX": 0.285,
+              "positionPercentY": 1.185,
+              "sizePercentX": 0.455,
+              "sizePercentY": 0.115,
+              "useMergedTexture": true,
+              "actionTag": 167563189,
+              "tag": 17,
+              "ignoreSize": true,
+              "name": "Label_16",
+              "classname": "Label"
+            },
+            "children": [],
+            "classname": "Label"
+          },
+          {
+            "options": {
+              "barFileNameData": {
+                "resourceType": 1,
+                "path": "GUI/slider_bar.png",
+                "plistFile": ""
+              },
+              "ballNormalData": {
+                "resourceType": 1,
+                "path": "GUI/slider_bar_button.png",
+                "plistFile": ""
+              },
+              "ballPressedData": {
+                "resourceType": 0
+              },
+              "ballDisabledData": {
+                "resourceType": 0
+              },
+              "percent": 50,
+              "progressBarData": {
+                "resourceType": 0
+              },
+              "x": 130.0,
+              "y": 237.0,
+              "scaleX": 0.4073145,
+              "scaleY": -0.6963755,
+              "touchAble": true,
+              "visible": true,
+              "classType": "Slider",
+              "width": 290.0,
+              "height": 6.0,
+              "positionPercentX": 0.65,
+              "positionPercentY": 1.185,
+              "sizePercentX": 1.45,
+              "sizePercentY": 0.03,
+              "useMergedTexture": true,
+              "actionTag": 318620148,
+              "tag": 18,
+              "ignoreSize": true,
+              "name": "Slider_17",
+              "classname": "Slider"
+            },
+            "children": [],
+            "classname": "Slider"
+          },
+          {
+            "options": {
+              "normalData": {
+                "resourceType": 1,
+                "path": "GUI/button.png",
+                "plistFile": ""
+              },
+              "pressedData": {
+                "resourceType": 0
+              },
+              "disabledData": {
+                "resourceType": 0
+              },
+              "text": "恢复默认",
+              "capInsetsWidth": 1.0,
+              "capInsetsHeight": 1.0,
+              "scale9Width": 103.0,
+              "scale9Height": 40.0,
+              "x": 24.0,
+              "y": 232.0,
+              "scaleX": 0.336097479,
+              "scaleY": 0.5373521,
+              "touchAble": true,
+              "visible": true,
+              "classType": "Button",
+              "width": 103.0,
+              "height": 40.0,
+              "positionPercentX": 0.12,
+              "positionPercentY": 1.16,
+              "sizePercentX": 0.515,
+              "sizePercentY": 0.2,
+              "useMergedTexture": true,
+              "actionTag": 1022183632,
+              "tag": 19,
+              "ignoreSize": true,
+              "name": "Button_18",
+              "classname": "Button"
+            },
+            "children": [],
+            "classname": "Button"
+          },
+          {
+            "options": {
+              "normalData": {
+                "resourceType": 1,
+                "path": "GUI/button.png",
+                "plistFile": ""
+              },
+              "pressedData": {
+                "resourceType": 0
+              },
+              "disabledData": {
+                "resourceType": 0
+              },
+              "text": "恢复默认",
+              "capInsetsWidth": 1.0,
+              "capInsetsHeight": 1.0,
+              "scale9Width": 103.0,
+              "scale9Height": 40.0,
+              "x": 24.0,
+              "y": 135.0,
+              "scaleX": 0.336097479,
+              "scaleY": 0.5373521,
+              "touchAble": true,
+              "visible": true,
+              "classType": "Button",
+              "width": 103.0,
+              "height": 40.0,
+              "positionPercentX": 0.12,
+              "positionPercentY": 0.675,
+              "sizePercentX": 0.515,
+              "sizePercentY": 0.2,
+              "useMergedTexture": true,
+              "actionTag": 575158175,
+              "tag": 20,
+              "ignoreSize": true,
+              "name": "Button_19",
+              "classname": "Button"
+            },
+            "children": [],
+            "classname": "Button"
+          },
+          {
+            "options": {
+              "barFileNameData": {
+                "resourceType": 1,
+                "path": "GUI/slider_bar.png",
+                "plistFile": ""
+              },
+              "ballNormalData": {
+                "resourceType": 1,
+                "path": "GUI/slider_bar_button.png",
+                "plistFile": ""
+              },
+              "ballPressedData": {
+                "resourceType": 0
+              },
+              "ballDisabledData": {
+                "resourceType": 0
+              },
+              "percent": 50,
+              "progressBarData": {
+                "resourceType": 0
+              },
+              "x": 130.0,
+              "y": 140.0,
+              "scaleX": 0.4073145,
+              "scaleY": -0.6963755,
+              "touchAble": true,
+              "visible": true,
+              "classType": "Slider",
+              "width": 290.0,
+              "height": 6.0,
+              "positionPercentX": 0.65,
+              "positionPercentY": 0.7,
+              "sizePercentX": 1.45,
+              "sizePercentY": 0.03,
+              "useMergedTexture": true,
+              "actionTag": 344829603,
+              "tag": 21,
+              "ignoreSize": true,
+              "name": "Slider_20",
+              "classname": "Slider"
+            },
+            "children": [],
+            "classname": "Slider"
+          },
+          {
+            "options": {
+              "text": "刷新",
+              "x": 57.0,
+              "y": 140.0,
+              "scaleX": 0.339773238,
+              "scaleY": 0.5172366,
+              "visible": true,
+              "classType": "Label",
+              "width": 40.0,
+              "height": 23.0,
+              "positionPercentX": 0.285,
+              "positionPercentY": 0.7,
+              "sizePercentX": 0.455,
+              "sizePercentY": 0.115,
+              "useMergedTexture": true,
+              "actionTag": 932026441,
+              "tag": 22,
+              "ignoreSize": true,
+              "name": "Label_21",
+              "classname": "Label"
+            },
+            "children": [],
+            "classname": "Label"
+          },
+          {
+            "options": {
+              "text": "速度",
+              "x": 57.0,
+              "y": 119.0,
+              "scaleX": 0.339773238,
+              "scaleY": 0.5172366,
+              "visible": true,
+              "classType": "Label",
+              "width": 40.0,
+              "height": 23.0,
+              "positionPercentX": 0.285,
+              "positionPercentY": 0.595,
+              "sizePercentX": 0.455,
+              "sizePercentY": 0.115,
+              "useMergedTexture": true,
+              "actionTag": 239097819,
+              "tag": 23,
+              "ignoreSize": true,
+              "name": "Label_22",
+              "classname": "Label"
+            },
+            "children": [],
+            "classname": "Label"
+          },
+          {
+            "options": {
+              "barFileNameData": {
+                "resourceType": 1,
+                "path": "GUI/slider_bar.png",
+                "plistFile": ""
+              },
+              "ballNormalData": {
+                "resourceType": 1,
+                "path": "GUI/slider_bar_button.png",
+                "plistFile": ""
+              },
+              "ballPressedData": {
+                "resourceType": 0
+              },
+              "ballDisabledData": {
+                "resourceType": 0
+              },
+              "percent": 5,
+              "progressBarData": {
+                "resourceType": 0
+              },
+              "x": 130.0,
+              "y": 119.0,
+              "scaleX": 0.4073145,
+              "scaleY": -0.6963755,
+              "touchAble": true,
+              "visible": true,
+              "classType": "Slider",
+              "width": 290.0,
+              "height": 6.0,
+              "positionPercentX": 0.65,
+              "positionPercentY": 0.595,
+              "sizePercentX": 1.45,
+              "sizePercentY": 0.03,
+              "useMergedTexture": true,
+              "actionTag": 828331576,
+              "tag": 24,
+              "ignoreSize": true,
+              "name": "Slider_23",
+              "classname": "Slider"
+            },
+            "children": [],
+            "classname": "Slider"
+          },
+          {
+            "options": {
+              "barFileNameData": {
+                "resourceType": 1,
+                "path": "GUI/slider_bar.png",
+                "plistFile": ""
+              },
+              "ballNormalData": {
+                "resourceType": 1,
+                "path": "GUI/slider_bar_button.png",
+                "plistFile": ""
+              },
+              "ballPressedData": {
+                "resourceType": 0
+              },
+              "ballDisabledData": {
+                "resourceType": 0
+              },
+              "percent": 1,
+              "progressBarData": {
+                "resourceType": 0
+              },
+              "x": 130.0,
+              "y": 162.0,
+              "scaleX": 0.4073145,
+              "scaleY": -0.6963755,
+              "touchAble": true,
+              "visible": true,
+              "classType": "Slider",
+              "width": 290.0,
+              "height": 6.0,
+              "positionPercentX": 0.65,
+              "positionPercentY": 0.81,
+              "sizePercentX": 1.45,
+              "sizePercentY": 0.03,
+              "useMergedTexture": true,
+              "actionTag": 870635173,
+              "tag": 25,
+              "ignoreSize": true,
+              "name": "Slider_24",
+              "classname": "Slider"
+            },
+            "children": [],
+            "classname": "Slider"
+          },
+          {
+            "options": {
+              "text": "生命",
+              "x": 57.0,
+              "y": 162.0,
+              "scaleX": 0.339773238,
+              "scaleY": 0.5172366,
+              "visible": true,
+              "classType": "Label",
+              "width": 40.0,
+              "height": 23.0,
+              "positionPercentX": 0.285,
+              "positionPercentY": 0.81,
+              "sizePercentX": 0.455,
+              "sizePercentY": 0.115,
+              "useMergedTexture": true,
+              "actionTag": 1005210391,
+              "tag": 26,
+              "ignoreSize": true,
+              "name": "Label_25",
+              "classname": "Label"
+            },
+            "children": [],
+            "classname": "Label"
+          },
+          {
+            "options": {
+              "text": "分数",
+              "x": 57.0,
+              "y": 183.0,
+              "scaleX": 0.339773238,
+              "scaleY": 0.5172366,
+              "visible": true,
+              "classType": "Label",
+              "width": 40.0,
+              "height": 23.0,
+              "positionPercentX": 0.285,
+              "positionPercentY": 0.915,
+              "sizePercentX": 0.455,
+              "sizePercentY": 0.115,
+              "useMergedTexture": true,
+              "actionTag": 452111761,
+              "tag": 27,
+              "ignoreSize": true,
+              "name": "Label_26",
+              "classname": "Label"
+            },
+            "children": [],
+            "classname": "Label"
+          },
+          {
+            "options": {
+              "barFileNameData": {
+                "resourceType": 1,
+                "path": "GUI/slider_bar.png",
+                "plistFile": ""
+              },
+              "ballNormalData": {
+                "resourceType": 1,
+                "path": "GUI/slider_bar_button.png",
+                "plistFile": ""
+              },
+              "ballPressedData": {
+                "resourceType": 0
+              },
+              "ballDisabledData": {
+                "resourceType": 0
+              },
+              "percent": 1,
+              "progressBarData": {
+                "resourceType": 0
+              },
+              "x": 130.0,
+              "y": 183.0,
+              "scaleX": 0.4073145,
+              "scaleY": -0.6963755,
+              "touchAble": true,
+              "visible": true,
+              "classType": "Slider",
+              "width": 290.0,
+              "height": 6.0,
+              "positionPercentX": 0.65,
+              "positionPercentY": 0.915,
+              "sizePercentX": 1.45,
+              "sizePercentY": 0.03,
+              "useMergedTexture": true,
+              "actionTag": 801061610,
+              "tag": 28,
+              "ignoreSize": true,
+              "name": "Slider_27",
+              "classname": "Slider"
+            },
+            "children": [],
+            "classname": "Slider"
+          },
+          {
+            "options": {
+              "fileNameData": {
+                "resourceType": 1,
+                "path": "Resources/duck2.png",
+                "plistFile": ""
+              },
+              "scale9Width": 485.0,
+              "scale9Height": 317.0,
+              "x": 21.0,
+              "y": 175.0,
+              "scaleX": 0.07375014,
+              "scaleY": 0.112686835,
+              "visible": true,
+              "classType": "ImageView",
+              "width": 485.0,
+              "height": 317.0,
+              "positionPercentX": 0.105,
+              "positionPercentY": 0.875,
+              "sizePercentX": 0.4,
+              "sizePercentY": 0.4,
+              "useMergedTexture": true,
+              "actionTag": 201676240,
+              "tag": 29,
+              "ignoreSize": true,
+              "name": "ImageView_28",
+              "classname": "ImageView"
+            },
+            "children": [],
+            "classname": "ImageView"
+          },
+          {
+            "options": {
+              "fileNameData": {
+                "resourceType": 1,
+                "path": "Resources/duck3.png",
+                "plistFile": ""
+              },
+              "scale9Width": 342.0,
+              "scale9Height": 267.0,
+              "x": 21.0,
+              "y": 75.0,
+              "scaleX": 0.07375014,
+              "scaleY": 0.112686835,
+              "visible": true,
+              "classType": "ImageView",
+              "width": 342.0,
+              "height": 267.0,
+              "positionPercentX": 0.105,
+              "positionPercentY": 0.375,
+              "sizePercentX": 0.4,
+              "sizePercentY": 0.4,
+              "useMergedTexture": true,
+              "actionTag": 307914367,
+              "tag": 30,
+              "ignoreSize": true,
+              "name": "ImageView_29",
+              "classname": "ImageView"
+            },
+            "children": [],
+            "classname": "ImageView"
+          },
+          {
+            "options": {
+              "barFileNameData": {
+                "resourceType": 1,
+                "path": "GUI/slider_bar.png",
+                "plistFile": ""
+              },
+              "ballNormalData": {
+                "resourceType": 1,
+                "path": "GUI/slider_bar_button.png",
+                "plistFile": ""
+              },
+              "ballPressedData": {
+                "resourceType": 0
+              },
+              "ballDisabledData": {
+                "resourceType": 0
+              },
+              "percent": 1,
+              "progressBarData": {
+                "resourceType": 0
+              },
+              "x": 130.0,
+              "y": 83.0,
+              "scaleX": 0.4073145,
+              "scaleY": -0.6963755,
+              "touchAble": true,
+              "visible": true,
+              "classType": "Slider",
+              "width": 290.0,
+              "height": 6.0,
+              "positionPercentX": 0.65,
+              "positionPercentY": 0.415,
+              "sizePercentX": 1.45,
+              "sizePercentY": 0.03,
+              "useMergedTexture": true,
+              "actionTag": 874842620,
+              "tag": 31,
+              "ignoreSize": true,
+              "name": "Slider_30",
+              "classname": "Slider"
+            },
+            "children": [],
+            "classname": "Slider"
+          },
+          {
+            "options": {
+              "text": "分数",
+              "x": 57.0,
+              "y": 83.0,
+              "scaleX": 0.339773238,
+              "scaleY": 0.5172366,
+              "visible": true,
+              "classType": "Label",
+              "width": 40.0,
+              "height": 23.0,
+              "positionPercentX": 0.285,
+              "positionPercentY": 0.415,
+              "sizePercentX": 0.455,
+              "sizePercentY": 0.115,
+              "useMergedTexture": true,
+              "actionTag": 386849524,
+              "tag": 32,
+              "ignoreSize": true,
+              "name": "Label_31",
+              "classname": "Label"
+            },
+            "children": [],
+            "classname": "Label"
+          },
+          {
+            "options": {
+              "text": "生命",
+              "x": 57.0,
+              "y": 62.0,
+              "scaleX": 0.339773238,
+              "scaleY": 0.5172366,
+              "visible": true,
+              "classType": "Label",
+              "width": 40.0,
+              "height": 23.0,
+              "positionPercentX": 0.285,
+              "positionPercentY": 0.31,
+              "sizePercentX": 0.455,
+              "sizePercentY": 0.115,
+              "useMergedTexture": true,
+              "actionTag": 813436509,
+              "tag": 33,
+              "ignoreSize": true,
+              "name": "Label_32",
+              "classname": "Label"
+            },
+            "children": [],
+            "classname": "Label"
+          },
+          {
+            "options": {
+              "barFileNameData": {
+                "resourceType": 1,
+                "path": "GUI/slider_bar.png",
+                "plistFile": ""
+              },
+              "ballNormalData": {
+                "resourceType": 1,
+                "path": "GUI/slider_bar_button.png",
+                "plistFile": ""
+              },
+              "ballPressedData": {
+                "resourceType": 0
+              },
+              "ballDisabledData": {
+                "resourceType": 0
+              },
+              "percent": 1,
+              "progressBarData": {
+                "resourceType": 0
+              },
+              "x": 130.0,
+              "y": 62.0,
+              "scaleX": 0.4073145,
+              "scaleY": -0.6963755,
+              "touchAble": true,
+              "visible": true,
+              "classType": "Slider",
+              "width": 290.0,
+              "height": 6.0,
+              "positionPercentX": 0.65,
+              "positionPercentY": 0.31,
+              "sizePercentX": 1.45,
+              "sizePercentY": 0.03,
+              "useMergedTexture": true,
+              "actionTag": 1059512857,
+              "tag": 34,
+              "ignoreSize": true,
+              "name": "Slider_33",
+              "classname": "Slider"
+            },
+            "children": [],
+            "classname": "Slider"
+          },
+          {
+            "options": {
+              "barFileNameData": {
+                "resourceType": 1,
+                "path": "GUI/slider_bar.png",
+                "plistFile": ""
+              },
+              "ballNormalData": {
+                "resourceType": 1,
+                "path": "GUI/slider_bar_button.png",
+                "plistFile": ""
+              },
+              "ballPressedData": {
+                "resourceType": 0
+              },
+              "ballDisabledData": {
+                "resourceType": 0
+              },
+              "percent": 5,
+              "progressBarData": {
+                "resourceType": 0
+              },
+              "x": 130.0,
+              "y": 20.0,
+              "scaleX": 0.4073145,
+              "scaleY": -0.6963755,
+              "touchAble": true,
+              "visible": true,
+              "classType": "Slider",
+              "width": 290.0,
+              "height": 6.0,
+              "positionPercentX": 0.65,
+              "positionPercentY": 0.1,
+              "sizePercentX": 1.45,
+              "sizePercentY": 0.03,
+              "useMergedTexture": true,
+              "actionTag": 1035650387,
+              "tag": 35,
+              "ignoreSize": true,
+              "name": "Slider_34",
+              "classname": "Slider"
+            },
+            "children": [],
+            "classname": "Slider"
+          },
+          {
+            "options": {
+              "text": "速度",
+              "x": 57.0,
+              "y": 20.0,
+              "scaleX": 0.339773238,
+              "scaleY": 0.5172366,
+              "visible": true,
+              "classType": "Label",
+              "width": 40.0,
+              "height": 23.0,
+              "positionPercentX": 0.285,
+              "positionPercentY": 0.1,
+              "sizePercentX": 0.455,
+              "sizePercentY": 0.115,
+              "useMergedTexture": true,
+              "actionTag": 709073665,
+              "tag": 36,
+              "ignoreSize": true,
+              "name": "Label_35",
+              "classname": "Label"
+            },
+            "children": [],
+            "classname": "Label"
+          },
+          {
+            "options": {
+              "text": "刷新",
+              "x": 57.0,
+              "y": 40.0,
+              "scaleX": 0.339773238,
+              "scaleY": 0.5172366,
+              "visible": true,
+              "classType": "Label",
+              "width": 40.0,
+              "height": 23.0,
+              "positionPercentX": 0.285,
+              "positionPercentY": 0.2,
+              "sizePercentX": 0.455,
+              "sizePercentY": 0.115,
+              "useMergedTexture": true,
+              "actionTag": 871393869,
+              "tag": 37,
+              "ignoreSize": true,
+              "name": "Label_36",
+              "classname": "Label"
+            },
+            "children": [],
+            "classname": "Label"
+          },
+          {
+            "options": {
+              "barFileNameData": {
+                "resourceType": 1,
+                "path": "GUI/slider_bar.png",
+                "plistFile": ""
+              },
+              "ballNormalData": {
+                "resourceType": 1,
+                "path": "GUI/slider_bar_button.png",
+                "plistFile": ""
+              },
+              "ballPressedData": {
+                "resourceType": 0
+              },
+              "ballDisabledData": {
+                "resourceType": 0
+              },
+              "percent": 50,
+              "progressBarData": {
+                "resourceType": 0
+              },
+              "x": 130.0,
+              "y": 40.0,
+              "scaleX": 0.4073145,
+              "scaleY": -0.6963755,
+              "touchAble": true,
+              "visible": true,
+              "classType": "Slider",
+              "width": 290.0,
+              "height": 6.0,
+              "positionPercentX": 0.65,
+              "positionPercentY": 0.2,
+              "sizePercentX": 1.45,
+              "sizePercentY": 0.03,
+              "useMergedTexture": true,
+              "actionTag": 963680333,
+              "tag": 38,
+              "ignoreSize": true,
+              "name": "Slider_37",
+              "classname": "Slider"
+            },
+            "children": [],
+            "classname": "Slider"
+          },
+          {
+            "options": {
+              "normalData": {
+                "resourceType": 1,
+                "path": "GUI/button.png",
+                "plistFile": ""
+              },
+              "pressedData": {
+                "resourceType": 0
+              },
+              "disabledData": {
+                "resourceType": 0
+              },
+              "text": "恢复默认",
+              "capInsetsWidth": 1.0,
+              "capInsetsHeight": 1.0,
+              "scale9Width": 103.0,
+              "scale9Height": 40.0,
+              "x": 24.0,
+              "y": 35.0,
+              "scaleX": 0.336097479,
+              "scaleY": 0.5373521,
+              "touchAble": true,
+              "visible": true,
+              "classType": "Button",
+              "width": 103.0,
+              "height": 40.0,
+              "positionPercentX": 0.12,
+              "positionPercentY": 0.175,
+              "sizePercentX": 0.515,
+              "sizePercentY": 0.2,
+              "useMergedTexture": true,
+              "actionTag": 446629387,
+              "tag": 39,
+              "ignoreSize": true,
+              "name": "Button_38",
+              "classname": "Button"
+            },
+            "children": [],
+            "classname": "Button"
+          }
+        ],
+        "classname": "ScrollView"
+      }
+    ],
+    "classname": "Node"
+  },
+  "action": {
+    "speed": 1.0,
+    "timelines": []
+  }
+}
